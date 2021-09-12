@@ -1,0 +1,30 @@
+				************* OOBC CBT SOFTWARE USAGE *******************
+*General Username/Password
+Username: admin
+Password: acadaoobc
+
+*Note: Always make sure the current session and semester is updated under the "Settings" link on the left side of the software Admin page. 
+
+
+*Changing the Images on the front page
+To change the images on the front page, Open the Exam Director or folder(/Overcomers). Navigate to the to the "slider" director i.e (/Overcomers/slider). The list of the image used for the tutora slider are there. You can delete any of the images but make sure to replace it with another image of the same name. For Example, if the image "Slider1.jpg" is to be changed to another image of a tutor. The Slider1.jpg is first deleted and the new image is copied into the same folder and the name is being changed back to "Slider1.jpg"
+
+*Creating New Exam and Edit Existing Exam
+Login into the application using the username and password above. Click on the "Manage Exams" on the left hand side. A List of existing exam will comes up. There is a "Edit" link at the right side of each exam. The "Delete" link can also be used to Delete the exam.
+On the top right hand side of the screen is a "Add new Exam" link to Add new Exam
+
+
+*Adding Questions
+Login to the application using the username and password on top of this page. Click o "Manage Questions" on the left hand side of the page. A List of already existing Exam will be shown. Click on the "View question" on the Exam in which you want to enter question for. This will open another page that contain the list of already added questions(if any) or blank if the exam is just added. Click on "Add New Question" on the top right corner of the page. This will lead to the page to enter the question. Enter the question inside the big box and the answer on the specify option box at the bottom of the big box...
+
+*Printing Result
+Login to the application using the username and password on top of this page. Click on "Manage Student". Click on the Current Session "View Records". It will show all the students added under the session. Click on "View result" to view the result of each student
+
+*Other function on student
+Follow the above instruction to the final page. On the final page you can perform the blow function on the students
+1. Delete Students
+2. Edit Student Information e.g Names, Password
+3. View Result of student
+4. Make the student an admin(*For tutors*)
+
+Note: Always make sure the current session and semester is updated under the "Settings" link on the left side of the page.  
