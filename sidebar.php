@@ -1,13 +1,61 @@
-<div class="span3" id="sidebar">
-	<img id="avatar" src="<?= $me['photo']; ?>" class="img-polaroid" />
-	<ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-		<li class=""><a href="dashboard.php"><i class="icon-chevron-right"></i><i class="icon-chevron-left"></i>&nbsp;Home</a></li>
-		
-		<?php if($isAdmin == true): ?>
-			<li class=""><a href="manage.php"><i class="icon-chevron-right"></i><i class="icon-group"></i>&nbsp;Manage Exams</a></li>
-			<li class=""><a href="session_m.php"><i class="icon-chevron-right"></i><i class="icon-book"></i>&nbsp;Manage Students</a></li>
-			<li class=""><a href="que_sort.php"><i class="icon-chevron-right"></i><i class="icon-group"></i>&nbsp;Manage Questions</a></li>
-			<li class=""><a href="settings.php"><i class="icon-chevron-right"></i><i class="icon-group"></i>&nbsp;Settings</a></li>
-		<?php endif; ?>
-	</ul>
+
+<div class="navigation" onclick="toggleMenu()">
+    <ul>
+        <li>
+            <a href="dashboard.php">
+                <span class="icon"><i class="fab fa-apple" aria-hidden="true"></i></span>
+                <span class="title">
+							<h2>Brand</h2>
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="dashboard.php">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span class="title">
+							Dashboard
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="manage.php">
+                <span class="icon"><i class="fas fa-laptop"></i></span>
+                <span class="title">
+							Manage Exams
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="session_m.php">
+                <span class="icon"><i class="fas fa-user-graduate"></i></span>
+                <span class="title">
+							Manage Students
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="que_sort.php">
+                <span class="icon"><i class="fas fa-question-circle"></i></span>
+                <span class="title">
+							Manage Questions
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="settings.php">
+                <span class="icon"><i class="fas fa-cog"></i></span>
+                <span class="title">
+							Settings
+						</span>
+            </a>
+        </li>
+        <li>
+            <a href="logout.php">
+                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                <span class="title">
+							Sign Out
+						</span>
+            </a>
+        </li>
+    </ul>
 </div>

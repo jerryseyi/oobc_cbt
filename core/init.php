@@ -1,4 +1,4 @@
-<?php 
+<?php
 ob_start(); 
 session_start();
 require_once 'connect/database.php';
@@ -8,6 +8,12 @@ require_once 'classes/post.php';
 require_once 'classes/courses.php';
 require_once('classes/events.php');
 require_once('classes/cbt.php');
+
+//ini_set(error_reporting(E_COMPILE_ERROR | E_DEPRECATED | E_ALL), 1);
+ini_set ('display_errors', 1);
+ini_set ('display_startup_errors', 1);
+error_reporting (E_ALL);
+
 
 $users 		= new Users($db);
 $general 	= new General();
@@ -29,4 +35,9 @@ if(isset($_SESSION['id']))
 	{
 		$isAdmin= false;
 	}
+}
+
+function view($name, $data = []) {
+    extract($data);
+    return require "{$name}.php";
 }

@@ -4,7 +4,6 @@ require 'core/init.php';
 
 $general->logged_in_protect();
 if (isset($_POST['login']) ) {
-
 	$email = htmlentities($_POST['username']);
 	$password = trim(mysqli_real_escape_string($local, $_POST['password']));
 	$pass = $general->hashed($password);
@@ -14,7 +13,7 @@ if (isset($_POST['login']) ) {
 	}
 	 else if ($users->user_exists($email) === false) {
 		$errors[] = 'Sorry that email doesn\'t exists.';
-	}	
+	}
 	else {
 		if (strlen($password) > 30) {
 			$errors[] = 'The password should be less than 18 characters, without spacing.';
@@ -42,9 +41,10 @@ if (isset($_POST['login']) ) {
 		<div id="logbox">
 		<div class="error">
 		<?php
-		echo '<p>' . implode('</p><p>', $errors) . '</p>';	
+        $error = '<p>' . implode('</p><p>', $errors) . '</p>';
+        return view('signin', compact('error'));
+
 	}
-	echo "<a href='index.php' class='btn btn-primary'>Back</a>";
 ?>
 </div>
 </div>
