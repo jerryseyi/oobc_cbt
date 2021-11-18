@@ -9,7 +9,7 @@
 $config = array(
 	'host'		=> 'localhost',
 	'username' 	=> 'root',
-	'password' 	=> 'samson',
+	'password' 	=> 'K20/@don.com',
 	'dbname' 	=> 'overcomer'
 );
 

@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+p {
+    font-weight: 300;
+    color: #111;
+}
+
+.mb-90 {
+    margin-bottom: 90px !important;
+}
+
+.mb-20 {
+    margin-bottom: 20px !important;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../img/bg.jpg");
+    background-size: cover;
+}
+
+.banner:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #282338;
+    opacity: 0.45;
+}
+
+.banner .content {
+    max-width: 900px;
+    text-align: center;
+    z-index: 1;
+}
+
+.banner .content h2 {
+    margin-top: 30px;
+    font-size: 5em;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.banner .content p {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.btn {
+    font-size: 1em;
+    color: #fff;
+    background: #282338;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    letter-spacing: 6px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+header.sticky .logo {
+    color: #111;
+}
+
+
+header .navigation {
+    position: relative;
+    display: flex;
+}
+
+header .navigation li {
+    list-style-type: none;
+    margin-left: 30px;
+}
+
+header .navigation li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+}
+
+header.sticky .navigation li a {
+    color: #111;
+}
+
+header .navigation li a:hover {
+    color: #ff0157;
+}
+
+
+.login {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
+.login .home {
+    position: absolute;
+    padding: 10px;
+    background: #5b5a5a;
+}
+
+.login .home a {
+    text-decoration: none;
+    color: white;
+}
+
+.login .contentBx {
+    background: #162c3b;
+    padding: 100px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login .contentBx h2 {
+    font-size: 2em;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.imgBx2 {
+    background-size: cover;
+    background: url(../img/student.jpg) center;
+    width: 50%;
+}
+
+.blackbg {
+    background: #111111;
+    width: 50%;
+}
+
+.errors {
+    background: white;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.errors p {
+    color: red;
+    font-weight: initial;
+}
+
+.redbg {
+    background-size: cover !important;
+    background: url(../img/blue-bg.jpg) center !important;
+}
+
+.redbg .check {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.redbg .check a {
+    font-weight: bold;
+    text-decoration: none;
+    color: gold;
+}
+
+.redbg .check a:hover {
+    color: #fff;
+}
+
+
+.form .inputBx {
+    margin-bottom: 5px;
+}
+
+.form .inputBx input {
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.form .inputBx select {
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.form .inputBx input::placeholder {
+    color: #fff;
+}
+
+.form .inputBx textarea {
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 300;
+    min-height: 150px;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.form .inputBx textarea::placeholder {
+    color: #fff;
+}
+
+.form .inputBx input[type="submit"] {
+    width: 150px;
+    background: #fff;
+    color: #111;
+    cursor: pointer;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 991px) {
+    .banner {
+        padding: 50px;
+    }
+
+    .banner header {
+        padding: 20px 50px;
+    }
+
+    .banner .content h2 {
+        font-size: 36px;
+    }
+
+    .banner .content p {
+        font-size: 16px;
+    }
+
+    .login {
+        flex-direction: column;
+    }
+
+    .login .contentBx, .login .imgBx {
+        width: 100%;
+        padding: 50px;
+        min-height: inherit;
+        text-align: center;
+        justify-content: center;
+    }
+
+}

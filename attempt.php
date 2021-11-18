@@ -1,5 +1,9 @@
 <?php 
-require_once('Connections/local.php'); ?>
+require_once('Connections/local.php');
+require_once('function.php');
+//require('core/init.php');
+?>
+
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -36,23 +40,32 @@ $colname_exam = "-1";
 if (isset($_GET['exam_id'])) {
   $colname_exam = $_GET['exam_id'];
 }
-mysql_select_db($database_local, $local);
-$query_exam = sprintf("SELECT * FROM exam WHERE exam_id = %s", GetSQLValueString($colname_exam, "int"));
-$exam = mysql_query($query_exam, $local) or die(mysql_error());
-$row_exam = mysql_fetch_assoc($exam);
-$totalRows_exam = mysql_num_rows($exam);
 
+mysqli_select_db($database_local);
+//mysql_select_db($database_local, $local);
+$query_exam = sprintf("SELECT * FROM exam WHERE exam_id = %s", GetSQLValueString($colname_exam, "int"));
+//$exam = mysqli_query($query_exam) or die(mysql_error());
+$exam = $local->query($query_exam);
+//$exam = $db->prepare($query_exam);
+$row_exam = mysqli_fetch_assoc($exam);
+//$row_exam = $exam->fetchAll();
+//var_dump($row_exam);
+//$totalRows_exam = mysql_num_rows($exam);
+$totalRows_exam = mysqli_num_rows($exam);
+//var_dump($totalRows_exam);
 $colname_question = "-1";
 $num= $row_exam['number_of_question']+1;
 if (isset($_GET['exam_id'])) {
   $colname_question = $_GET['exam_id'];
 }
-mysql_select_db($database_local, $local);
+//mysql_select_db($database_local, $local);
 $query_question = sprintf("SELECT * FROM question WHERE exam_id = %s", GetSQLValueString($colname_question, "int")." ORDER BY rand()  LIMIT 0, $num");
-$question = mysql_query($query_question, $local) or die(mysql_error());
-$row_question = mysql_fetch_assoc($question);
-$totalRows_question = mysql_num_rows($question);
+//$question = mysql_query($query_question, $local) or die(mysql_error());
+$question = $local->query($query_question);
+//$totalRows_question = mysql_num_rows($question);
+$totalRows_question = mysqli_num_rows($question);
 ?>
+<!--$row_question = mysql_fet-->
 <?php
 	require('core/init.php');
 	$general->logged_out_protect();
@@ -96,7 +109,7 @@ require_once("header.php");
 									<form id="examForm" action="result.php?<?php echo $general->hashed('id'); ?>=<?php echo $_GET['exam_id']; ?>" method="post">
 									<?php
 										$j=1; $i=0;
-										while($row = mysql_fetch_array($question)){
+										while($row = mysqli_fetch_array($question)){
 											$que_no[] = $row['que_id'];
 											echo '<p><span>'.$j.' </span>'."<font color=blue>". $row['question']."</font>".'<br>'.
 											'<span>(a) </span><input type="radio" name="q'.$i.'" value="A" > '.$row['opt_A'].'<br>
