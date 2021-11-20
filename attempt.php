@@ -75,72 +75,76 @@ $totalRows_question = mysqli_num_rows($question);
 <?php
 $title = "Exam";
 require_once("header.php");
-?>   
-	<div class="container-fluid">
-	<div class="row-fluid">
-		<?php require_once("sidebar.php") ?>
-		<div class="span9" id="content">
-			 <div class="row-fluid">
-				<!-- block -->
-				<div id="block_bg" class="block">
-		
-					<div class="block-content collapse in">
-						<div class="span12">
-							<!-- block -->
-							<div class="navbar navbar-inner block-header">
-								<div class="muted pull-left">Instruction: Please attempt all questions</div>
-							</div>
-							<div id='calendar'>
-								<table align="center" cellpadding="0" bgcolor="#FFFFFF" width="800" border="0">              
-									<tr><td>
-										<center><h2><u><?php echo $row_exam['exam_name']; ?></u></h2></center>
-										<center><h6><u><?php echo $row_exam['exam_desc']; ?></u></h6></center>
-									</td></tr>
-									<tr align="right"><td>
-										<form name="cd">
-											<div class="time">
-											  <span class="labe"><em>Remaining Time: </em></span>
-											  <input name="disp" type="text" class="clock" id="txt" value="<?php echo $row_exam['time_allowed']; ?>" readonly />
-											  <span>Minutes</span>
-										  </div>
-										</form>
-									</td></tr>
-									<tr><td>
-									<form id="examForm" action="result.php?<?php echo $general->hashed('id'); ?>=<?php echo $_GET['exam_id']; ?>" method="post">
-									<?php
-										$j=1; $i=0;
-										while($row = mysqli_fetch_array($question)){
-											$que_no[] = $row['que_id'];
-											echo '<p><span>'.$j.' </span>'."<font color=blue>". $row['question']."</font>".'<br>'.
-											'<span>(a) </span><input type="radio" name="q'.$i.'" value="A" > '.$row['opt_A'].'<br>
-											<span>(b) </span><input type="radio" name="q'.$i.'" value="B" > '.$row['opt_B'].'<br>
-											<span>(c) </span><input type="radio" name="q'.$i.'" value="C" > '.$row['opt_C'].'<br>
-											<span>(d) </span><input type="radio" name="q'.$i.'" value="D" > '.$row['opt_D'].'</p>';
-																$j= $j+1;
-																$i= $i+1;
-										}
-										$_SESSION['que_no']= $que_no;
-										for($i=0; $i<$num-1; $i++){
-											$fetch= $cbt->fetchResult($que_no[$i]);
-											$_SESSION[$i.'ans']= $fetch['ans'];
-										}
-									?>
-									<input name="cmdSubmit" type="submit" id="cmdSubmit"  class="btn-info" value="Submit"/>
-									</form>
-									</td></tr>
-								</table>
-							</div>		
-							<!-- /block -->
-						</div>
-					</div>
+?>
+<div class="details">
+    <div class="recentOrders" style="display: flex; justify-content: center;">
+        <div class="cardHeaderExt">
+            <h2 style="font-size: 16px;">Instruction: Please attempt all questions</h2>
+        </div>
+
+        <div class="add-form" style="padding-top: 0; margin-top: 15px; max-width: 1000px; width: 100%;">
+            <h2 style=""><?php echo $row_exam['exam_name']; ?></h2>
+            <h4 style="margin-bottom: 60px; font-weight: lighter"><?php echo $row_exam['exam_desc']; ?></h4>
+            <form name="cd">
+                <div style="position:absolute; right: 5px; top: 10px;" class="time">
+                    <span class="labe">Remaning Time: </span>
+                    <input type="text" name="disp" class="clock" id="txt" value="<?php echo $row_exam['time_allowed']; ?>" readonly>
+                </div>
+            </form>
+
+            <form id="examForm" action="result.php?<?php echo $general->hashed('id'); ?>=<?php echo $_GET['exam_id']; ?>" method="post">
+                <?php
+                $j=1; $i=0; ?>
+                <?php while($row = mysqli_fetch_array($question)):  ?>
+                    <?php $que_no[] = $row['que_id']; ?>
+                    <div class="input-group mb-10">
+                        <div class="input-box w-100 sm-mb-90 mb-0">
+                            <div class="input-text-position">
+                                <div style="display: flex; color: rebeccapurple;">
+                                    <p style="font-weight: 500;"><span style="display: inline-block; margin-right: 5px;"><?= $j.'.'?></span><?= $row['question']?></p>
+                                </div>
+                                <div class="" style="padding-top: 5px;">
+                                    <div><span style="margin-right: 5px">(a)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_A']?></span></div>
+                                    <div><span style="margin-right: 5px">(b)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_B'] ?></span></div>
+                                    <div><span style="margin-right: 5px">(c)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_C']?></span></div>
+                                    <div><span style="margin-right: 5px">(d)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_D']?></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php $j= $j+1;
+                    $i= $i+1;
+                    ?>
+                <?php endwhile; ?>
+                <?php $_SESSION['que_no']= $que_no; ?>
+                <?php for($i=0; $i<$num-1; $i++) {
+                    $fetch= $cbt->fetchResult($que_no[$i]);
+                    $_SESSION[$i.'ans']= $fetch['ans'];
+                } ?>
+                <div class="input-group">
+                    <input name="cmdSubmit" type="submit" id="cmdSubmit"  class="btn-info" value="Submit"/>
+                </div>
+            </form>
                 </div>
 			</div>
 		</div>
-	</div><!-- /End of row-fluid -->
-	</div>
-	<footer style='text-align:center'>			
-		<p>&copy; <?php echo date('Y'); ?> Powered by OOBC<sup>&reg;</sup></p>
-	</footer>
+
+<script>
+    function toggleMenu() {
+        let toggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        let main = document.querySelector('.main');
+        toggle.classList.toggle('active');
+        navigation.classList.toggle('active');
+        main.classList.toggle('active');
+    }
+
+    function toggleDropdown() {
+        let dropdown = document.querySelector('.dropdown');
+        dropdown.classList.toggle('active');
+    }
+
+</script>
 
 <script>
 	var mins;
@@ -210,21 +214,7 @@ require_once("header.php");
 	window.onload = init;
 </script>
 
-	<script src="admin/bootstrap/js/bootstrap.min.js"></script>
-	<script src="admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-	<script src="admin/assets/scripts.js"></script>
-	<script>
-		$(function() {
-			// Easy pie charts
-			$('.chart').easyPieChart({animate: 1000});
-		});
-				</script>
-	
-	<!-- data table -->
-	<script src="admin/vendors/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="admin/assets/DT_bootstrap.js"></script>		
-		<!-- jgrowl -->
-	<script src="admin/vendors/jGrowl/jquery.jgrowl.js"></script>   
+<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script>
 		$(function() {
 			var time = $(".time");

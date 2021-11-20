@@ -118,7 +118,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <div class="card-set">
-                                <p class="card-text">Make sure the <a href="settings.html">Session and Semester settings</a> are both correct to avoid any error.</p>
+                                <p class="card-text">Make sure the <a href="settings.php">Session and Semester settings</a> are both correct to avoid any error.</p>
                                 <p>Please select a menu to manage at the sidebar.</p>
                             </div>
                         </div>
