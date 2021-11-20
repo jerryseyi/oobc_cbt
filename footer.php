@@ -1,3 +1,4 @@
+
 </div>
 </div>
 
@@ -25,6 +26,28 @@
             return false;
         }
     }
+
 </script>
+
+<?php if (isset($dStart) && isset($dEnd)): ?>
+    <script>
+        let start = <?= json_encode($dStart, JSON_HEX_TAG) ?>;
+        let end = <?= json_encode($dEnd, JSON_HEX_TAG) ?>;
+
+        (function () {
+            document.getElementById("start").value = start;
+            document.getElementById("dateClose").value = end;
+        }());
+    </script>
+<?php endif; ?>
+
+<?php if (isset($filepond)): ?>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script>
+        FilePond.registerPlugin(FilePondPluginImagePreview);
+        FilePond.parse(document.body);
+    </script>
+<?php endif;?>
 </body>
 </html>

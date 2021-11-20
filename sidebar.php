@@ -50,10 +50,18 @@
             </a>
         </li>
         <li>
+            <a href="signup.php">
+                <span class="icon"><i class="fas fa-registered"></i></span>
+                <span class="title">
+							Register student
+						</span>
+            </a>
+        </li>
+        <li>
             <a href="logout.php">
                 <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                 <span class="title">
-							Sign Out
+							Log Out
 						</span>
             </a>
         </li>
