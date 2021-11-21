@@ -31,13 +31,17 @@
 
     <div class="main" <?php if ($isAdmin == false) { echo "style='left: 0; width: 100%;'";}?>>
         <div class="topbar">
-            <div style="display: flex; justify-content: center; align-items: center;">
-                <div class="user">
-                    <img src="img/OOBC%20LOGO.png" alt="">
+            <?php if ($isAdmin == false) : ?>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div class="user">
+                        <img src="img/OOBC%20LOGO.png" alt="">
+                    </div>
+                    <span style="color: #162c3b; font-size: 1.2em; font-weight: bold; margin-left: 10px;">OOBC CBT APP</span>
                 </div>
-                <span style="color: #162c3b; font-size: 1.2em; font-weight: bold; margin-left: 10px;">OOBC CBT APP</span>
-            </div>
-
+            <?php endif; ?>
+            <?php if ($isAdmin == true) : ?>
+                <div class="toggle" onclick="toggleMenu()"></div>
+            <?php endif; ?>
 
             <div class="user" onclick="toggleDropdown()">
                 <img src="<?= $me['photo'] ?: 'img/default.png' ?>" alt="">

@@ -3,10 +3,12 @@
     <ul>
         <li>
             <a href="dashboard.php">
-                <span class="icon"><i class="fab fa-apple" aria-hidden="true"></i></span>
-                <span class="title">
-							<h2>Brand</h2>
-						</span>
+<!--                <span class="icon"><i class="fab fa-apple" aria-hidden="true"></i></span>-->
+                <span class="title" style="left: 82px; top: 20px;">
+                    <div class="user">
+                        <img src="img/OOBC%20LOGO.png" alt="">
+                    </div>
+                </span>
             </a>
         </li>
         <li>
