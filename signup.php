@@ -153,7 +153,6 @@ if (isset($_POST['register'])) {
                 </div>
             </form>
 
-            <p class="check">Already have an account ? <a href="signin.php">Sign in</a></p>
         </div>
     </div>
     <div class="imgBx2"></div>
