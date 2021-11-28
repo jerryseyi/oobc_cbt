@@ -92,5 +92,17 @@
 <div class="copyrightText">
     <p style="color:#fff;">Copyright &copy; OOBC Academic Unit, 2021.</p>
 </div>
+
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+
+    function toggleMenu() {
+        const navigation = document.querySelector('.navigation');
+        navigation.classList.toggle('active');
+    }
+</script>
 </body>
 </html>
