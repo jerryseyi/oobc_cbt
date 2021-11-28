@@ -159,6 +159,7 @@ if (isset($_POST['register'])) {
 </section>
 </body>
 </html>
-    <?php
+
+<?php
 mysqli_free_result($sess);
 ?>
