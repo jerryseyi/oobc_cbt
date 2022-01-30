@@ -78,7 +78,7 @@
                 <div class="cardBox">
                     <div class="card">
                         <div>
-                            <div class="numbers">1,000</div>
+                            <div class="numbers"><?= usersCount($local); ?></div>
                             <div class="cardName">Users</div>
                         </div>
                         <div class="iconBox">
@@ -87,7 +87,7 @@
                     </div>
                     <div class="card">
                         <div>
-                            <div class="numbers">20</div>
+                            <div class="numbers"><?= tutorsCount($local); ?></div>
                             <div class="cardName">Tutors</div>
                         </div>
                         <div class="iconBox">
@@ -96,7 +96,7 @@
                     </div>
                     <div class="card">
                         <div>
-                            <div class="numbers">8</div>
+                            <div class="numbers"><?= examsCount($local); ?></div>
                             <div class="cardName">Exams available</div>
                         </div>
                         <div class="iconBox">
@@ -105,7 +105,7 @@
                     </div>
                     <div class="card">
                         <div>
-                            <div class="numbers">35</div>
+                            <div class="numbers"><?= studentsCount($local); ?></div>
                             <div class="cardName">Students</div>
                         </div>
                         <div class="iconBox">

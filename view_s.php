@@ -85,7 +85,7 @@
                 <td>Photo</td>
                 <td>Username</td>
                 <td>Full Name</td>
-                <td colspan=4>Action</td>
+                <td colspan=3>Action</td>
             </tr>
             </thead>
             <tbody>
@@ -96,7 +96,7 @@
 
                 <?php while($row_ree = mysqli_fetch_assoc($student_query)): ?>
                     <tr>
-                        <td width="80" height="100"><img src="<?= $row_ree['photo']; ?>" style="width:80px; height:100px;"></td>
+                        <td><img src="<?= $row_ree['photo']; ?>" style="width:80px; height:100px;"></td>
                         <td><?= $row_ree['username']; ?></td>
                         <td><?= $row_ree['Fullname']; ?></td>
                         
