@@ -482,8 +482,8 @@ a {
 
 .details .recentOrders table thead tr td:last-child,
 .details .recentOrders table tbody tr td:last-child {
-    display: flex;
-    text-align: right;
+    /*display: flex;*/
+    /*text-align: right;*/
 }
 
 .details .recentOrders table tbody tr td:last-child a:nth-child(1) {
@@ -719,7 +719,7 @@ form .input-group .input-box input::placeholder {
 
     .cardHeaderExt h2 {
         font-weight: 600;
-        font-size: 18px;
+        font-size: 12px;
     }
 }
 

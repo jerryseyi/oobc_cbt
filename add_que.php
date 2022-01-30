@@ -50,7 +50,7 @@
     <div class="recentOrders">
         <div class="cardHeader">
             <h2>Add Questions</h2>
-            <a href="add-question.html" class="btn">Add New Question</a>
+            <a href="add_que.php" class="btn">Add New Question</a>
         </div>
 
         <div class="add-form">
