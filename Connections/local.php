@@ -7,7 +7,7 @@
 $hostname_local = "localhost";
 $database_local = "overcomer";
 $username_local = "root";
-$password_local = "";
+$password_local = "K20/@don.com";
 
 $local = mysqli_connect($hostname_local, $username_local, $password_local, $database_local);
 
