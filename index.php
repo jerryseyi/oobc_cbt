@@ -57,7 +57,8 @@
         <div class="sec aboutus">
             <h2>About Us</h2>
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem voluptate totam doloremque. Saepe iusto quidem magnam ad magni asperiores harum ipsum, laboriosam obcaecati unde assumenda quas nisi aliquam incidunt, eum!
+                OOBC ACADEMIC UNIT is a gathering of Eagles who believe in raising other academic eagles through impact and
+                impart by teaching them how to soar academically.
             </p>
             <ul class="sci">
                 <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
