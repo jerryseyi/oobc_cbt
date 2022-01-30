@@ -108,9 +108,10 @@ if (isset($_POST['register'])) {
 </head>
 <body>
 <section class="login">
-    <div class="home">
-        <a href="dashboard.php">Home</a>
-    </div>
+        <div class="logowrap" style="position:absolute !important; left: 20px; top: 10px;">
+            <a href="dashboard.php" class="logo"><img src="img/OOBC%20LOGO.png" alt=""></a>
+        </div>
+
     <div class="contentBx redbg">
         <h2>Register new user. </h2>
         <div class="form">
