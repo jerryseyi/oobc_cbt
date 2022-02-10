@@ -41,3 +41,9 @@ function view($name, $data = []) {
     extract($data);
     return require "{$name}.php";
 }
+
+function redirect($url, $statusCode = 303)
+{
+    header('Location: ' . $url, true, $statusCode);
+    die();
+}

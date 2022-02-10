@@ -50,7 +50,9 @@
                 <h3><?= $me['username'] ?></h3>
                 <ul>
                     <li><span class="fas fa-image"></span><a href="change_avatar.php">Change Avatar</a></li>
+                    <?php if ($isAdmin) : ?>
                     <li><span class="fas fa-key"></span><a href="change_password.php">Change Password</a></li>
+                    <?php endif; ?>
                     <li><span class="fas fa-sign-out-alt"></span><a href="logout.php">Logout</a></li>
                 </ul>
             </div>

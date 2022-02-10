@@ -1,6 +1,10 @@
 <?php
 	require('core/init.php');
 
+	if (! $isAdmin) {
+	    redirect('logout.php');
+    }
+
     $currentPage = $_SERVER["PHP_SELF"];
 	$general->logged_out_protect();
 	$me= $users->userdata($_SESSION['id']);
