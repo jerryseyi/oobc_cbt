@@ -11,8 +11,8 @@ require_once('classes/cbt.php');
 
 //ini_set(error_reporting(E_COMPILE_ERROR | E_DEPRECATED | E_ALL), 1);
 ini_set ('display_errors', 1);
-ini_set ('display_startup_errors', 1);
-error_reporting (E_ALL);
+//ini_set ('display_startup_errors', 1);
+//error_reporting (E_ALL);
 
 
 $users 		= new Users($db);
@@ -35,15 +35,4 @@ if(isset($_SESSION['id']))
 	{
 		$isAdmin= false;
 	}
-}
-
-function view($name, $data = []) {
-    extract($data);
-    return require "{$name}.php";
-}
-
-function redirect($url, $statusCode = 303)
-{
-    header('Location: ' . $url, true, $statusCode);
-    die();
 }
