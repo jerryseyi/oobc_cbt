@@ -10,6 +10,7 @@
 	}
 
 	if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
+	    var_dump('hi');
 		
 		$insertSQL = sprintf('INSERT INTO `session` (session_name) VALUES ("%s")', htmlentities($_POST['session_name']));
 		

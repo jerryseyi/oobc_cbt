@@ -46,15 +46,12 @@ mysqli_select_db($database_local);
 $query_exam = sprintf("SELECT * FROM exam WHERE exam_id = %s", GetSQLValueString($colname_exam, "int"));
 //$exam = mysqli_query($query_exam) or die(mysql_error());
 $exam = $local->query($query_exam);
-//$exam = $db->prepare($query_exam);
 $row_exam = mysqli_fetch_assoc($exam);
-//$row_exam = $exam->fetchAll();
-//var_dump($row_exam);
-//$totalRows_exam = mysql_num_rows($exam);
 $totalRows_exam = mysqli_num_rows($exam);
 //var_dump($totalRows_exam);
 $colname_question = "-1";
-$num= $row_exam['number_of_question']+1;
+//$num= $row_exam['number_of_question']+1;
+$num= $row_exam['number_of_question'];
 if (isset($_GET['exam_id'])) {
   $colname_question = $_GET['exam_id'];
 }
@@ -76,13 +73,14 @@ $totalRows_question = mysqli_num_rows($question);
 $title = "Exam";
 require_once("header.php");
 ?>
+
 <div class="details">
     <div class="recentOrders" style="display: flex; justify-content: center;">
         <div class="cardHeaderExt">
             <h2 style="font-size: 16px;">Instruction: Please attempt all questions</h2>
         </div>
 
-        <div class="add-form" style="padding-top: 0; margin-top: 15px; max-width: 1000px; width: 100%;">
+        <div class="add-form" style="padding-top: 0; margin-top: 15px; max-width: 1200px; width: 100%;">
             <h2 style=""><?php echo $row_exam['exam_name']; ?></h2>
             <h4 style="margin-bottom: 60px; font-weight: lighter"><?php echo $row_exam['exam_desc']; ?></h4>
             <form name="cd">
@@ -92,35 +90,60 @@ require_once("header.php");
                 </div>
             </form>
 
-            <form id="examForm" action="result.php?<?php echo $general->hashed('id'); ?>=<?php echo $_GET['exam_id']; ?>" method="post">
-                <?php
-                $j=1; $i=0; ?>
+            <form id="examForm" style="padding-left: 0;" action="result.php?<?php echo $general->hashed('id'); ?>=<?php echo $_GET['exam_id']; ?>" method="post">
+
+                <?php $j=1; $i=0; ?>
                 <?php while($row = mysqli_fetch_array($question)):  ?>
                     <?php $que_no[] = $row['que_id']; ?>
-                    <div class="input-group mb-10">
-                        <div class="input-box w-100 sm-mb-90 mb-0">
-                            <div class="input-text-position">
-                                <div style="display: flex; color: rebeccapurple;">
-                                    <p style="font-weight: 500;"><span style="display: inline-block; margin-right: 5px;"><?= $j.'.'?></span><?= $row['question']?></p>
+                    <div class="apps-list radiogroup" style="justify-content: flex-start; top: 0;
+                     max-width: 1200px; padding-left: 25px; height: fit-content; margin-bottom: 10px;">
+                        <div class="apps-group">
+                            <div class="apps-text">
+                                <h3 style="font-style: inherit; font-weight: initial; font-size: 15px;">
+                                    <span style="display: flex; align-items: baseline;"><span><?= $j . '.' ?></span><?= $row['question']?></span></h3>
+
+                                <div class="wrapper">
+                                    <input class="state" type="radio" name="<?= 'q'. $i ?>" id="<?= 'A'. $i ?>" value="A">
+                                    <label class="label" for="<?= 'A'. $i ?>">
+                                        <div class="indicator"></div>
+                                        <span class="text">a) <?= $row['opt_A']?></span>
+                                    </label>
                                 </div>
-                                <div class="" style="padding-top: 5px;">
-                                    <div><span style="margin-right: 5px">(a)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_A']?></span></div>
-                                    <div><span style="margin-right: 5px">(b)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_B'] ?></span></div>
-                                    <div><span style="margin-right: 5px">(c)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_C']?></span></div>
-                                    <div><span style="margin-right: 5px">(d)</span><input type="radio" name="<?= 'q'.$i ?>" style="width: auto; margin-right: 5px;"><span><?= $row['opt_D']?></span></div>
+                                <div class="wrapper">
+                                    <input class="state" type="radio" name="<?= 'q'. $i ?>" id="<?= 'B'. $i ?>" value="B">
+                                    <label class="label" for="<?= 'B'. $i ?>">
+                                        <div class="indicator"></div>
+                                        <span class="text">b) <?= $row['opt_B']?></span>
+                                    </label>
                                 </div>
+                                <div class="wrapper">
+                                    <input class="state" type="radio" name="<?= 'q'. $i ?>" id="<?= 'C'. $i ?>" value="C">
+                                    <label class="label" for="<?= 'C'. $i ?>">
+                                        <div class="indicator"></div>
+                                        <span class="text">c) <?= $row['opt_C']?></span>
+                                    </label>
+                                </div>
+                                <div class="wrapper">
+                                    <input class="state" type="radio" name="<?= 'q'. $i ?>" id="<?= 'D'. $i ?>" value="D">
+                                    <label class="label" for="<?= 'D'. $i ?>">
+                                        <div class="indicator"></div>
+                                        <span class="text">d) <?= $row['opt_D']?></span>
+                                    </label>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <?php $j= $j+1;
-                    $i= $i+1;
+                    <?php $j= $j+1; $i= $i+1; ?>
+                    <?php endwhile; ?>
+                    <?php $_SESSION['que_no']= $que_no; ?>
+
+                    <?php
+                    for($i=0; $i<$num-1; $i++) {
+                        $fetch = $cbt->fetchResult($que_no[$i]);
+                        $_SESSION[$i . 'ans'] = $fetch['ans'];
+                    }
                     ?>
-                <?php endwhile; ?>
-                <?php $_SESSION['que_no']= $que_no; ?>
-                <?php for($i=0; $i<$num-1; $i++) {
-                    $fetch= $cbt->fetchResult($que_no[$i]);
-                    $_SESSION[$i.'ans']= $fetch['ans'];
-                } ?>
                 <div class="input-group">
                     <input name="cmdSubmit" type="submit" id="cmdSubmit"  class="btn-info" value="Submit"/>
                 </div>
