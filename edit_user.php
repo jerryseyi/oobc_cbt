@@ -46,68 +46,50 @@
 	$title = "Edit User";
 	require_once("header.php");
 ?>
+<div class="details">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>Edit User</h2>
+            <a href="add_sess.php" class="btn">Add New Session</a>
+        </div>
 
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<?php require_once("sidebar.php"); ?> 
-			<div class="span9" id="content">
-					<div class="row-fluid">
-					<!-- block -->
-					<div id="block_bg" class="block">
-			
-							<div class="block-content collapse in">
-									<div class="span12">
-						<!-- block -->
-									<div class="navbar navbar-inner block-header">
-										<div class="muted pull-left">Edit User</div>
-										<div class="pull-right"><i class="icon-plus"></i> <a href="add_sess.php">Add new session</a></div>
-									</div>
-									<div id='calendar'>
-									<style>
-									
-									</style>
-									
-									<form method="post" name="form1" action="">
-										<table align="center" style="border:0px; margin-top:30px">
-											<tr valign="baseline">
-											<td nowrap align="right">Username:</td>
-											<td><input type='text' name='username' value="<?php echo htmlentities($u_data['username'], ENT_COMPAT, 'UTF-8'); ?>" /> </td>
-											</tr>
-											<tr valign="baseline">
-											<td nowrap align="right">Fullname</td>
-											<td><input type='text' name='fullname' value="<?php echo htmlentities($u_data['Fullname'], ENT_COMPAT, 'UTF-8'); ?>" /></td>
-											</tr>
-											<tr valign="baseline">
-											<td nowrap align="right">Password:</td>
-											<td><input type="password" name="password" placeholder="Leave blank if you dont want to change the password" /></td>
-											</tr>
-											<tr valign="baseline">
-											<td nowrap align="right">&nbsp;</td>
-											<td><input type="submit" value="Update record" name='submit'>
-												<input type="button" value="Back" onClick="history.back()">
-											</td>
-											
-											</tr>
-										</table>
-										
-										</form>
-										<p>&nbsp;</p>
-										
-									
-									</div>
-							</div>
-						</div>
-					</div>
-					<!-- /block -->
-				</div>
-			</div>
-		</div>
-		<div style="text-align: center">
-			<footer>
-				<p>&copy; 2021. Powered by OOBC<sup>&reg;</sup></p>
-			</footer>
-		</div>
-	</div>
+        <div class="add-form">
+            <form method="post" name="form1" action="">
+                <div class="input-group">
+                    <div class="input-box w-90 sm-mb-90 mb-0">
+                        <label for="">Username</label>
+                        <div class="input-text-position">
+                            <input type="text" value="<?php echo htmlentities($u_data['username'], ENT_COMPAT, 'UTF-8'); ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box w-90 sm-mb-90 mb-0">
+                        <label for="">Username</label>
+                        <div class="input-text-position">
+                            <input type="text" value="<?php echo htmlentities($u_data['Fullname'], ENT_COMPAT, 'UTF-8'); ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box w-90 sm-mb-90 mb-0">
+                        <label for="">Password</label>
+                        <div class="input-text-position">
+                            <input type="password" name="password" placeholder="leave blank if you don't want to change the password">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group flex">
+                    <input type="submit" name="submit" class="px-20" value="Update Record" id="">
+                    <input type="button" name="" value="Back" id="" class="px-20 btn-gray" onclick="history.back()">
+                </div>
+                <input type="hidden" name="MM_insert" value="form1">
+            </form>
+
+            <?php include "footer.php"?>
+<!--            --><?php
+//            mysqli_free_result($Recordset1);
+//            ?>
 
 	<script src="admin/bootstrap/js/bootstrap.min.js"></script>
 	<script src="admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>

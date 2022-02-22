@@ -19,7 +19,7 @@
 						GetSQLValueString($_POST['opt_D'], "text"),
 						GetSQLValueString($_POST['ans'], "text"));
 
-	$Result1 = mysqli_query($local, $insertSQL) or die(mysql_error());
+	$Result1 = mysqli_query($local, $insertSQL) or die(mysqli_error($local));
 
 	header(sprintf("Location: %s", $editFormAction));
 	}
@@ -43,7 +43,7 @@
 	}
 
 	$title = "Add Question";
-	$trix = "active";
+	$tinymce = "active";
 	require_once("header.php");
 ?>
 <div class="details">
@@ -78,8 +78,7 @@
                     <div class="input-box w-90 sm-mb-90 mb-0">
                         <label for="">Question</label>
                         <div class="input-text-position">
-                            <input id="x" type="hidden" name="question">
-                            <trix-editor input="x"></trix-editor>
+                            <textarea name="question" id="tiny"></textarea>
                         </div>
                     </div>
                 </div>
@@ -87,11 +86,11 @@
                     <div class="input-box flex w-90">
                         <div class="input-box-split w-50 mr-5">
                             <label for="">Opt_A</label>
-                            <div class="input-text-position"><input type="text" placeholder="" name="opt_A" size="32"><span></span></div>
+                            <div class="input-text-position"><input type="text" id="inp1" name="opt_A" size="32"><span></span></div>
                         </div>
                         <div class="input-box-split w-50 mr-5">
                             <label for="">Opt_B</label>
-                            <div class="input-text-position"><input type="text" placeholder="" name="opt_B" size="32"><span></span></div>
+                            <div class="input-text-position"><input type="text" id="inp2" name="opt_B" size="32"><span></span></div>
                         </div>
                     </div>
                 </div>
@@ -99,11 +98,11 @@
                     <div class="input-box flex w-90">
                         <div class="input-box-split w-50 mr-5">
                             <label for="">Opt_C</label>
-                            <div class="input-text-position"><input type="text" placeholder="" name="opt_C" size="32"><span></span></div>
+                            <div class="input-text-position"><input type="text" id="inp3" name="opt_C" size="32"><span></span></div>
                         </div>
                         <div class="input-box-split w-50 mr-5">
                             <label for="">Opt_D</label>
-                            <div class="input-text-position"><input type="text" placeholder="" name="opt_D" size="32"><span></span></div>
+                            <div class="input-text-position"><input type="text" id="inp4" name="opt_D" size="32"><span></span></div>
                         </div>
                     </div>
                 </div>
