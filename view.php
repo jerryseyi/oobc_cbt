@@ -27,44 +27,57 @@ $title = ucwords($student_data['Fullname'])."'s Result";
 require_once("header.php");
 ?>
 
-<div class="result_page">
-	<header>
-		<h1>OOBC CBT</h1>
-		<p><u>STUDENTS SEMESTER RESULT</u></p>
-	</header>
-	<div class='stud-info'>
-		<img src="<?php echo $student_data['photo'] ?>" alt="Student's Image" width=150>
-		<table>
-			<tr><th>NAME</th><td><?php echo ucwords($student_data['Fullname']); ?></td></tr>
-			<tr><th>SESSION</th><td><?php echo $getS['session_name']; ?></td></tr>
-			<tr><th>SEMESTER</th><td><?php echo $cbt->getCurrentSemester()->semester; ?></td></tr>
-			<tr><th>LEVEL</th><td>100 L</td></tr>
-		</table>
-	</div>
-	<div class='calendar'>
-		<table>
-			<tr><th width="70%">COURSE</th><th>SCORE</th></tr>
-		<?php
-		if(count($result) > 0)
-		{
-			foreach($result as $results)
-			{
-				$exam = $cbt->examByIds($results['exam_id']);
-			   echo "\n<tr>\n
+<div class="details">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>OOBC CBT</h2>
+            <a href="#" class="btn">Students Semester Result</a>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap;">
+            <div id="image">
+                <img src="<?php echo $student_data['photo'] ?>" alt="Student's Image" width=250>
+                <h3 class="mb-10">Name: <?php echo ucwords($student_data['Fullname']); ?></h3>
+                <p class="mb-5">Session: <?php echo $getS['session_name']; ?></p>
+                <p class="mb-5">Semester: <?php echo $cbt->getCurrentSemester()->semester; ?></p>
+                <p>100 L</p>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <td>S/N</td>
+                <td>Exam Name</td>
+                <td>Result</td>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            if(count($result) > 0)
+            {
+                $count = 1;
+                foreach($result as $results)
+                {
+                    $exam = $cbt->examByIds($results['exam_id']);
+                    echo "\n<tr style='border:1px double #ccc;'>\n
+			   <td>". $count++."</td>
 			   <td>".$exam['exam_name']."</td>
 			   <td><font color=green>".$results['score']."%"."</font> </td>\n
 			   </tr>";
-			}
-		}else{
-			echo "<td colspan=2>No Result Found!</td>";
-		}
-		?>
-		</table>
-	</div>
+                }
+            }else{
+                echo "<td colspan=2>No Result Found!</td>";
+            }
+            ?>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 		<footer>		
-		<div class='result_page'>&copy; 2015. Powered by OOBC<sup>&reg;</sup></div>
+		<div class='result_page'>&copy; <?= date('Y');?>. Powered by OOBC<sup>&reg;</sup></div>
 		</footer>
     </body>
 </html>

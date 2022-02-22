@@ -16,16 +16,25 @@ if(isset($num))
 		for($i=0; $i<$number; $i++)
 
 		{
-			if($_POST['q'.$i] == $_SESSION[$i.'ans'])
-			{
-				$score = $score+1;
-			}
+			if (isset($_POST['q'.$i])) {
+                if($_POST['q'.$i] == $_SESSION[$i.'ans'])
+                {
+                    $score = $score+1;
+                }
+            }
 		}
 	}
 	$avg=  $score/$number;
 	$final= sprintf("%.2f", $avg*100);
 	//
 	$addScore= $cbt->addScore($_SESSION['id'], $_GET['fgb80bb77b80bb7787ea5df4d69f39'], $final, time());
+
+	if (! $isAdmin) {
+	    require ('function.php');
+
+	    return redirect('dashboard.php');
+    }
+
 ?>
 
 <?php

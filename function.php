@@ -76,3 +76,8 @@ function redirect($url, $statusCode = 303)
     header('Location: ' . $url, true, $statusCode);
     die();
 }
+
+function redirect_back() {
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}

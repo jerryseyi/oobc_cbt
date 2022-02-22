@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OOBC CBT <?php if(isset($title)) echo " | $title"; ?></title>
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="dist/all.min.css">
     <link rel="stylesheet" href="css/index.css">
     <?php
-    if (isset($trix)) {
-            echo "<link rel='stylesheet' href='node_modules/trix/dist/trix.css'>
-                  <script src='node_modules/trix/dist/trix.js'></script>
+    if (isset($tinymce)) {
+            echo "<script src='js/tinymce/tinymce.min.js'></script>
+                  <script src='dist/index.js'></script>
+                  <script src='https://wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image'></script>
                  ";
         }
     
