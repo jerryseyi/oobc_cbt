@@ -78,11 +78,11 @@
                     <div class="input-box">
                         <div class="input-box-split">
                             <label for="">Start Date</label>
-                            <div class="input-text-position"><input type="text" placeholder="When the exam should start." name="start_date" size="32"><span></span></div>
+                            <div class="input-text-position"><input type="date" placeholder="When the exam should start." name="start_date" size="32"><span></span></div>
                         </div>
                         <div class="input-box-split">
                             <label for="">Close Date</label>
-                            <div class="input-text-position"><input type="text" placeholder="When the exam should end." name="close_date" size="32"><span></span></div>
+                            <div class="input-text-position"><input type="date" placeholder="When the exam should end." name="close_date" size="32"><span></span></div>
                         </div>
                     </div>
                 </div>
