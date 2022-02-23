@@ -37,6 +37,7 @@ if (isset($_POST['login']) ) {
 ?>
 <?php 
 	if(empty($errors) === false){
+	    require 'function.php';
 		?>
 		<div id="logbox">
 		<div class="error">
