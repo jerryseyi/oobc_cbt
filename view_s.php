@@ -85,7 +85,7 @@
                 <td>Photo</td>
                 <td>Username</td>
                 <td>Full Name</td>
-                <td colspan=3>Action</td>
+                <td colspan=4>Action</td>
             </tr>
             </thead>
             <tbody>
@@ -112,7 +112,11 @@
                                 echo "<td><a href='makeadmin.php?action=remove&session_id=".$row_ree['session_id']."&user_id=".$row_ree['id']."' title='Remove Admin' class='status delivered'>Remove Admin</a></td>";
                             }
                         ?>
-                        
+
+                        <?php
+                        echo "<td><a href='del_user.php?action=delete&session_id=".$row_ree['session_id']."&user_id=".$row_ree['id']."' title='delete' class='status return'>Delete</a></td>";
+                        ?>
+
                     </tr>
 
                 <?php endwhile; ?>
