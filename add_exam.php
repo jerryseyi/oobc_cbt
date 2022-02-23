@@ -22,7 +22,7 @@
 		GetSQLValueString($open, "text"),
 		GetSQLValueString($close, "text"));
 
-		$Result1 = mysqli_query($local, $insertSQL) or die(mysql_error());
+		$Result1 = mysqli_query($local, $insertSQL) or die(mysqli_error($local));
 
 		$insertGoTo = "manage.php";
 
