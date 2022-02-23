@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OOBC CBT APP</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="dist/all.min.css">
 </head>
 <body>
 <header>
@@ -61,10 +61,10 @@
                 impart by teaching them how to soar academically.
             </p>
             <ul class="sci">
-                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.facebook.com/ooreofeoluwa.bc"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCFobMp33lhXVT_mr-00K_vA"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
             </ul>
         </div>
 
