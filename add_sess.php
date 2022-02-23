@@ -50,7 +50,7 @@
         </div>
 
         <div class="add-form">
-            <form>
+            <form action="" method="post">
                 <div class="input-group mb-10">
                     <div class="input-box w-80 sm-mb-90 mb-0">
                         <label for="" style="margin-bottom: 10px">Academic Session</label>
