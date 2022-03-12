@@ -22,7 +22,7 @@
 
 	$u_data = $users->userdata($u_id);
 
-	if(isset($_POST['submit'])){
+	if(isset($_POST['submit'])) {
 		$username = $_POST['username'];
 		$fullname = $_POST['fullname'];
 		
@@ -59,7 +59,9 @@
                     <div class="input-box w-90 sm-mb-90 mb-0">
                         <label for="">Username</label>
                         <div class="input-text-position">
-                            <input type="text" value="<?php echo htmlentities($u_data['username'], ENT_COMPAT, 'UTF-8'); ?>">
+                            <input type="text"
+                                   name="username"
+                                   value="<?php echo htmlentities($u_data['username'], ENT_COMPAT, 'UTF-8'); ?>">
                         </div>
                     </div>
                 </div>
@@ -67,7 +69,9 @@
                     <div class="input-box w-90 sm-mb-90 mb-0">
                         <label for="">Username</label>
                         <div class="input-text-position">
-                            <input type="text" value="<?php echo htmlentities($u_data['Fullname'], ENT_COMPAT, 'UTF-8'); ?>">
+                            <input type="text"
+                                   name="fullname"
+                                   value="<?php echo htmlentities($u_data['Fullname'], ENT_COMPAT, 'UTF-8'); ?>">
                         </div>
                     </div>
                 </div>
