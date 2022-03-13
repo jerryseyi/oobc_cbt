@@ -9,6 +9,7 @@
     <?php
     if (isset($tinymce)) {
             echo "<script src='js/tinymce/tinymce.min.js'></script>
+                  <script src='dist/plugin.min.js'></script>
                   <script src='dist/index.js'></script>
                   <script src='https://wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image'></script>
                  ";
