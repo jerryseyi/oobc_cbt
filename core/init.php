@@ -1,6 +1,8 @@
 <?php
 ob_start(); 
-session_start();
+if (empty(session_id()) && !headers_sent()) {
+	session_start();
+}
 require_once 'connect/database.php';
 require_once 'classes/users.php';
 require_once 'classes/general.php';

@@ -41,7 +41,7 @@ if (isset($_GET['exam_id'])) {
   $colname_exam = $_GET['exam_id'];
 }
 
-mysqli_select_db($database_local);
+mysqli_select_db($local, $database_local);
 //mysql_select_db($database_local, $local);
 $query_exam = sprintf("SELECT * FROM exam WHERE exam_id = %s", GetSQLValueString($colname_exam, "int"));
 //$exam = mysqli_query($query_exam) or die(mysql_error());
